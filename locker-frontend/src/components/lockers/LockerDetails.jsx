@@ -1,3 +1,6 @@
+import { useParams } from "react-router";
+
+import { containersData } from "../../assets/util";
 
 export default function LockerDetails() {
 
@@ -6,6 +9,7 @@ export default function LockerDetails() {
         <div>
             <h4>Uhaul container</h4>
             <h6><em>123 4th St</em></h6>
+
         </div>
     );
 }

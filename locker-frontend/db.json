@@ -1,0 +1,42 @@
+{
+    "credentials": {
+        "email": "user@user.com",
+        "password": "123"
+    },
+    "lockers": [
+        {
+            "lockerName": "Uhaul storage container",
+            "lockerAddress": "123 S 4th St"
+        },
+        {
+            "lockerName": "My Attic",
+            "lockerAddress": "321 S 1st St"
+        },
+        {
+            "lockerName": "Dad's basement",
+            "lockerAddress": "789 10th St"
+        }
+    ],
+    "containers": [
+        {
+            "containerId": "1",
+            "containerItems": ["book", "spatula", "board game", "shower curtain"]
+        },
+        {
+            "containerId": "2",
+            "items": ["trading cards", "spatula", "board game", "silverware"]
+        },
+        {
+            "containerId": "3",
+            "items": ["clothes hangers", "coats", "bedding", "Xbox"]
+        },
+        {
+            "containerId": "4", 
+            "items": ["book", "computer monitor", "board game", "shower curtain"]
+        },
+        {
+            "containerId": "5",
+            "items": ["kitchen knives", "spatula", "blender", "shower curtain"]
+        }
+    ]
+}

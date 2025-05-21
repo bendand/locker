@@ -8,7 +8,7 @@ export default function GettingStarted() {
     return (
         <main>
             <section>
-                <img src="./assets/attic-boxes.jpg" alt="boxes in an attic"/>
+                <img src="/assets/attic-boxes.jpg" alt="boxes in an attic"/>
                 <h3>Outsource your organizational overhead</h3>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et

@@ -6,42 +6,37 @@ import About from './components/About';
 import AuthModal from './components/AuthModal';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
+import LockerDetails from './components/lockers/LockerDetails';
+import ContainerDetails from './components/containers/ContainerDetails';
 
 
 function App() {
-
-
   return (
       <Routes>
-
+        {/* initial layout plan -- with home screen and validation */}
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="login" element={<AuthModal />} />
 
-        <Route path="dashboard/lockerlist" element={<Dashboard />} >
-          <Route path="dashboard/lockerlist/:lockerId"/>
+        <Route path="login/dashboard/lockerlist" element={<Dashboard />} >
+          <Route 
+            path=":lockerName"
+            element={<LockerDetails />}
+          />
         </Route>
 
-        {/* <Routes>
-          <Route index element={<HomeScreen />}>
-            <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
-          </Route>
-          <Route 
-            path='/'
-            element={<Main />}
-          />
-          <Route 
-            path='/about'
-            element={<AboutPage />}
-          />
-          <Route 
-            path='/validate'
-            element={<Validation />}
-          />
+        {/* alternative route layout -- just boxes and add boxes form */}
 
-        </Routes> */}
-      </Routes>
+        {/* <Route index element={<ContainerList />}>
+          <Route
+            path=":containerId"
+            element={ContainerDetails}
+          />
+        </Route>
+        <Route path="about" element={<About />} /> */}
+      
+
+      </Routes> 
     );
 
 }

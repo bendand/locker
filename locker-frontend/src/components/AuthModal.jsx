@@ -1,12 +1,18 @@
 import { userCredentials } from "../assets/util";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
+
+
 
 import Header from "./Header";
 import Dashboard from "./Dashboard";
 
 export default function AuthModal() {
-    function handleInputValidation() {
+    let navigate = useNavigate();
 
+    function handleInputValidation() {
+        console.log("handling input validation");
+        return navigate("dashboard/lockerlist");
     }
 
     return (
@@ -14,15 +20,15 @@ export default function AuthModal() {
             <Header />
             <form action="" method="">
                 <div>
-                    <label for="email">Enter your email: </label>
+                    <label htmlFor="email">Enter your email: </label>
                     <input type="email" name="email" id="email" required />
                 </div>
                 <div>
-                    <label for="password">Enter your password: </label>
+                    <label htmlFor="password">Enter your password: </label>
                     <input type="password" name="password" id="password" minLength={8} required />
                 </div>
                 <div>
-                    <Link to="dashboard/lockerlist" element={<Dashboard />}><button>Submit</button></Link>
+                    <button onClick={handleInputValidation}>Submit</button>
                 </div>
             </form>
         </section>
