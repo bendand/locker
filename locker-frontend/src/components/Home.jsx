@@ -1,11 +1,11 @@
-import Navigation from "./Header";
+import Header from "./Header";
 import GettingStarted from "./GettingStarted";
 import Footer from "./Footer";
 
 export default function Home() {
     return (
         <>
-            <Navigation />
+            <Header />
             <GettingStarted />
             <Footer />
         </>

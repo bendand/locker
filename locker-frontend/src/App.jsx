@@ -1,13 +1,13 @@
 import './App.css'
 import { Routes, Route} from "react-router-dom";
-// import parent jsx files here
-import Main from './components/Main';
+
 import About from './components/About';
-import AuthModal from './components/AuthModal';
 import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import LockerDetails from './components/lockers/LockerDetails';
 import ContainerDetails from './components/containers/ContainerDetails';
+import LockerList from './components/lockers/LockerList';
+import LockerLabel from './components/lockers/LockerLabel';
 
 
 function App() {
@@ -16,14 +16,17 @@ function App() {
         {/* initial layout plan -- with home screen and validation */}
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="login" element={<AuthModal />} />
+        <Route path="lockerlist" element={<LockerList />}>
+          <Route path=":lockerName" element={<LockerDetails />} />
+        </Route>
 
-        <Route path="login/dashboard/lockerlist" element={<Dashboard />} >
+
+        {/* <Route path="login/dashboard/lockerlist" element={<Dashboard />} >
           <Route 
             path=":lockerName"
             element={<LockerDetails />}
           />
-        </Route>
+        </Route> */}
 
         {/* alternative route layout -- just boxes and add boxes form */}
 
