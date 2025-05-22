@@ -1,33 +1,46 @@
 {
     "lockers": [
         {
-            "lockerName": "Uhaul storage container",
-            "lockerAddress": "123 S 4th St"
+            "lockerName": "Uhaul storage locker",
+            "lockerAddress": "123 S 4th St",
+            "lockerContainers": [
+                {
+                    "containerId": "1",
+                    "containerItems": ["clothes hangers", "coats", "bedding", "Xbox"]
+                },
+                {
+                    "containerId": "2",
+                    "containerItems": ["book", "computer monitor", "board game", "shower curtain"]
+                }
+            ]
         },
         {
             "lockerName": "My Attic",
-            "lockerAddress": "321 S 1st St"
+            "lockerAddress": "321 S 1st St",
+            "lockerContainers": [
+                {
+                    "containerId": "1",
+                    "containerItems": ["kitchen knives", "spatula", "blender", "shower curtain"]
+                },
+                {
+                    "containerId": "2",
+                    "containerItems": ["trading cards", "spatula", "board game", "silverware"]
+                }
+            ]
         },
         {
             "lockerName": "Dad's basement",
-            "lockerAddress": "789 10th St"
-        }
-    ],
-    "containers": [
-        {
-            "items": ["book", "spatula", "board game", "shower curtain"]
-        },
-        {
-            "items": ["trading cards", "spatula", "board game", "silverware"]
-        },
-        {
-            "items": ["clothes hangers", "coats", "bedding", "Xbox"]
-        },
-        {
-            "items": ["book", "computer monitor", "board game", "shower curtain"]
-        },
-        {
-            "items": ["kitchen knives", "spatula", "blender", "shower curtain"]
+            "lockerAddress": "789 10th St",
+            "lockerContainers": [
+                {
+                    "containerId": "1",
+                    "containerItems": ["book", "spatula", "board game", "shower curtain"]
+                },
+                {
+                    "containerId": "2",
+                    "containerItems": ["trading cards", "spatula", "board game", "silverware"]
+                }
+            ]
         }
     ]
 }

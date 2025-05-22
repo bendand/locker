@@ -1,38 +1,69 @@
 import { useParams } from "react-router";
 import Header from "../Header";
+import ContainerLabel from "../containers/ContainerLabel";
 import { useEffect, useState } from "react";
 
 
-import { Link } from "react-router-dom";
 
-// import { containersData } from "../../assets/util";
+export default function LockerDetails({ lockerName }) {
+    const [lockerData, setLockerData] = useState(null);
+    let { lockerId } = useParams();
 
-export default function LockerDetails({ idx, name, address }) {
-    const [containers, setContainers] = useState();
-    // const lockerName = useParams('lockerName');
+    console.log('locker name in locker details component: ', lockerName);
 
     useEffect(() => {
-        fetch('http://localhost:3000/containers')
+        fetch('http://localhost:3000/lockers')
         .then(res => {
-            console.log('response object,', res)
             return res.json();
         })
         .then((data) => {
-            console.log('json data,', data)
-            setContainers(data);
+            const lockersData = data;
+            let currLockerData = null;
+            lockersData.forEach(locker => {
+                if (locker.id == lockerId) {
+                    currLockerData = locker;
+                }
+            })
+
+            setLockerData(currLockerData);
         }); 
     }, []);
 
-    // load related boxes here 
+    // if (containers) {
+    //     containers.forEach(container => {
+    //         console.log(container.items);
+    //     })
+    // }
+
+    // if (lockerData) {
+    //     console.log(lockerData);
+    // }
+
     return (
         <>
             <Header />
-            <div>
-                <h4>{name}</h4>
-                <h6><em>{address}</em></h6>
-            </div>
-            <div>
-
+            <div className="locker-details">
+                {lockerData ? (
+                    <>
+                        <div>
+                            <h4>Containers in {lockerData.lockerName}</h4>
+                        </div>
+                        <div>
+                            {lockerData.lockerContainers.map((container, idx) => (
+                                <div key={container.containerId}>
+                                    <ContainerLabel
+                                        lockerId={lockerId}
+                                        lockerName={lockerData.lockerName}
+                                        containerItems={container.containerItems}
+                                        containerId={container.containerId}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </>
+                ) : (
+                    <p>Loading...</p>
+                )}
             </div>
         </>
     );

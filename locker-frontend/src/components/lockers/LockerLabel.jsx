@@ -4,24 +4,21 @@ import { useParams } from "react-router";
 
 
 
-export default function LockerLabel({ idx, name, address }) {
-
-    const lockerName = useParams('lockerName');
-    console.log(lockerName);
+export default function LockerLabel({ lockerId, lockerName, lockerAddress }) {
+    // console.log('locker name within locker label component: ', lockerId);
+    // console.log(lockerName);
 
     return (
-        <div id={idx}>
+        <div key={lockerId}>
             <Link 
-                to={`${name}`}
-                element={<LockerDetails 
-                            id={idx}
-                            name={name}
-                            address={address}
+                to={`${lockerId}`}
+                element={<LockerDetails
+                            lockerName={lockerName}
                         />}
             >
-                <h4>{name}</h4>
+                <h4>{lockerName}</h4>
             </Link>
-            <p><em>{address}</em></p>
+            <p><em>{lockerAddress}</em></p>
         </div>
     );
 }

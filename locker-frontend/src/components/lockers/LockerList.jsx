@@ -22,6 +22,12 @@ export default function LockerList() {
         }); 
     }, []);
 
+    // if (lockers) {
+    //     lockers.forEach(locker => {
+    //         console.log(locker.lockerName);
+    //     })
+    // }
+
 
     return (
         <>
@@ -34,11 +40,11 @@ export default function LockerList() {
                     </div>
                     <div className="lockerlist-lockers"> 
                         {lockers && lockers.map((locker, idx) => (
-                            <div key={locker.id}>
+                            <div key={idx}>
                                 <LockerLabel 
-                                    idx={locker.id}
-                                    name={locker.lockerName} 
-                                    address={locker.lockerAddress}
+                                    lockerId={locker.id}
+                                    lockerName={locker.lockerName} 
+                                    lockerAddress={locker.lockerAddress}
                                 />
                             </div>
                         ))}

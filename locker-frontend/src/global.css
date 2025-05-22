@@ -58,6 +58,13 @@ main {
     flex-flow: column;
 }
 
+.locker-details {
+  display: block;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
 /* .lockerlist-header {
   
 } */
