@@ -92,6 +92,10 @@ nav > div {
   display: inline-block;
 }
 
+.modal {
+  border-radius: 8px;
+}
+
 
 
 

@@ -13,33 +13,11 @@ import LockerLabel from './components/lockers/LockerLabel';
 function App() {
   return (
       <Routes>
-        {/* initial layout plan -- with home screen and validation */}
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="lockerlist" element={<LockerList />} />
         <Route path="lockerlist/:lockerId" element={<LockerDetails />} />
         <Route path="lockerlist/:lockerId/:containerId" element={<ContainerDetails />} />
-
-
-
-        {/* <Route path="login/dashboard/lockerlist" element={<Dashboard />} >
-          <Route 
-            path=":lockerName"
-            element={<LockerDetails />}
-          />
-        </Route> */}
-
-        {/* alternative route layout -- just boxes and add boxes form */}
-
-        {/* <Route index element={<ContainerList />}>
-          <Route
-            path=":containerId"
-            element={ContainerDetails}
-          />
-        </Route>
-        <Route path="about" element={<About />} /> */}
-      
-
       </Routes> 
     );
 

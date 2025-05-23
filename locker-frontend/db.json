@@ -5,10 +5,12 @@
             "lockerAddress": "123 S 4th St",
             "lockerContainers": [
                 {
+                    "containerName": "boy's bedroom",
                     "containerId": "1",
                     "containerItems": ["clothes hangers", "coats", "bedding", "Xbox"]
                 },
                 {
+                    "containerName": "main bedroom",
                     "containerId": "2",
                     "containerItems": ["book", "computer monitor", "board game", "shower curtain"]
                 }
@@ -19,10 +21,12 @@
             "lockerAddress": "321 S 1st St",
             "lockerContainers": [
                 {
+                    "containerName": "kitchen",
                     "containerId": "1",
                     "containerItems": ["kitchen knives", "spatula", "blender", "shower curtain"]
                 },
                 {
+                    "containerName": "game room",
                     "containerId": "2",
                     "containerItems": ["trading cards", "spatula", "board game", "silverware"]
                 }
@@ -33,10 +37,12 @@
             "lockerAddress": "789 10th St",
             "lockerContainers": [
                 {
+                    "containerName": "kitchen",
                     "containerId": "1",
                     "containerItems": ["book", "spatula", "board game", "shower curtain"]
                 },
                 {
+                    "containerName": "family room",
                     "containerId": "2",
                     "containerItems": ["trading cards", "spatula", "board game", "silverware"]
                 }

@@ -5,11 +5,9 @@ import { useEffect, useState } from "react";
 
 
 
-export default function LockerDetails({ lockerName }) {
+export default function LockerDetails() {
     const [lockerData, setLockerData] = useState(null);
     let { lockerId } = useParams();
-
-    console.log('locker name in locker details component: ', lockerName);
 
     useEffect(() => {
         fetch('http://localhost:3000/lockers')
@@ -35,9 +33,6 @@ export default function LockerDetails({ lockerName }) {
     //     })
     // }
 
-    // if (lockerData) {
-    //     console.log(lockerData);
-    // }
 
     return (
         <>

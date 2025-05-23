@@ -7,7 +7,7 @@ import Header from "../Header";
 export default function ContainerDetails({ lockerName, lockerId, containerItems, containerId }) {
     // console.log(containerItems);
     console.log(lockerName);
-    console.log('in container details');
+    // console.log('in container details');
     return (
         <>
             <Header />
