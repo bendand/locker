@@ -19,23 +19,23 @@ export default function LockerList() {
         .then((data) => {
             setLockers(data);
         }); 
-    }, []);
+    }, [lockers]);
 
     function handleStartAddLocker() {
         modal.current.open();
     }
 
-    function handleAddLocker(event) {
-        event.preventDefault();
+    // function handleUpdateLockers(event) {
+    //     event.preventDefault();
         
-        fetch('http://localhost:3000/lockers', {
-            method: "POST",
-            // stringify data collected from inputs
-            body: JSON.stringify()
-        })
-
-
-    }
+    //     fetch('http://localhost:3000/lockers')
+    //     .then(res => {
+    //         return res.json();
+    //     })
+    //     .then((data) => {
+    //         setLockers(data);
+    //     }); 
+    // }
 
 
     function cancelAddLocker() {
@@ -67,7 +67,7 @@ export default function LockerList() {
                 <AddLockerModal
                     ref={modal}
                     onCancel={cancelAddLocker}
-                    onAdd={handleAddLocker}
+                    onAdd={setLockers}
                 />
             </main>
         </>

@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { useState, forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
+import { useInput } from "../../hooks/useInput";
+import { isNotEmpty } from "../../util/validation";
 
 
 
@@ -10,12 +12,13 @@ const AddLockerModal = forwardRef(function AddLockerModal({
     onAdd }, 
     ref) {
 
-    let navigate = useNavigate();
-    const dialog = useRef();
     const [inputValues, setInputValues] = useState({
         lockerName: '',
         lockerAddress: ''
-    })
+    });
+
+    let navigate = useNavigate();
+    const dialog = useRef();
 
     function handleInputChange(event) {
         const { name, value } = event.target;
@@ -24,14 +27,38 @@ const AddLockerModal = forwardRef(function AddLockerModal({
             ...prevData,
             [name]: value
         }));
-
-
     }
 
-    console.log(inputValues.lockerName);
+    function handleSubmit(formData) {
+        const name = formData.get("lockerName");
+        const address = formData.get("lockerAddress");
+        const url = "http://localhost:3000/lockers";
 
+        const postAPI = () => {
+            console.log('post api entered');
+            try {
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        lockerName: name,
+                        lockerAddress: address,
+                        lockerContainers: []
+                    })
+                });
 
+                dialog.current.close();
+                onAdd();
 
+            } catch (err) {
+                console.log("Error: ", err)
+            }
+        }
+
+        postAPI();
+    }
 
     useImperativeHandle(ref, () => {
         return {
@@ -45,8 +72,6 @@ const AddLockerModal = forwardRef(function AddLockerModal({
     });
 
 
-
-
     return createPortal(
         <dialog ref={dialog}>
             <div className="modal">
@@ -55,12 +80,12 @@ const AddLockerModal = forwardRef(function AddLockerModal({
                 >
                     X
                 </button>
-                <form action="">
+                <form action={handleSubmit} id="locker-form">
                     <div>
                         <label htmlFor="name">Locker Name</label>
                         <input
                             type="text" 
-                            name="name" 
+                            name="lockerName" 
                             value={inputValues.lockerName}
                             onChange={handleInputChange}
                             required 
@@ -70,14 +95,14 @@ const AddLockerModal = forwardRef(function AddLockerModal({
                         <label htmlFor="address">Locker Address</label>
                         <input
                             type="text" 
-                            name="address"
+                            name="lockerAddress"
                             value={inputValues.lockerAddress}
                             onChange={handleInputChange}
                             required 
                         />
                     </div>
                     <div>
-                        <button onClick={onAdd}>Add Locker</button>
+                        <button type="submit">Add Locker</button>
                     </div>
                 </form>
             </div>
