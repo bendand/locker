@@ -82,39 +82,9 @@
       "id": "d5ba"
     },
     {
-      "id": "0564",
-      "lockerName": "garage",
-      "lockerAddress": "26 valley lane",
-      "lockerContainers": []
-    },
-    {
-      "id": "bc10",
-      "lockerName": null,
-      "lockerAddress": null,
-      "lockerContainers": []
-    },
-    {
-      "id": "8422",
-      "lockerName": "Some locker",
-      "lockerAddress": "some address",
-      "lockerContainers": []
-    },
-    {
-      "id": "654c",
-      "lockerName": "a garage",
-      "lockerAddress": "an address",
-      "lockerContainers": []
-    },
-    {
-      "id": "1aa9",
-      "lockerName": "another storage container",
-      "lockerAddress": "another address",
-      "lockerContainers": []
-    },
-    {
-      "id": "4aad",
-      "lockerName": "locker",
-      "lockerAddress": "address",
+      "id": "5cb3",
+      "lockerName": "Uhaul bridgeton",
+      "lockerAddress": "243 Bridgeton ave",
       "lockerContainers": []
     }
   ]

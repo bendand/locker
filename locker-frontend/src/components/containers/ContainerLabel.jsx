@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import ContainerDetails from "./ContainerDetails";
 
-export default function ContainerLabel({ lockerId, containerItems, containerId, lockerName }) {
-    // console.log('lockerId: ', lockerId);
+export default function ContainerLabel({ lockerId, lockerName, containerItems, containerId }) {
+    // console.log('lockerId: ', );
     let items = containerItems;
     // console.log(items);
     // console.log(typeof(items));

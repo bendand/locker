@@ -1,5 +1,7 @@
 import './App.css'
 import { Routes, Route} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 import About from './components/About';
 import Home from './components/Home';
@@ -12,6 +14,7 @@ import LockerLabel from './components/lockers/LockerLabel';
 
 function App() {
   return (
+    <>
       <Routes>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
@@ -19,6 +22,8 @@ function App() {
         <Route path="lockerlist/:lockerId" element={<LockerDetails />} />
         <Route path="lockerlist/:lockerId/:containerId" element={<ContainerDetails />} />
       </Routes> 
+      <ToastContainer />
+    </>
     );
 
 }

@@ -25,19 +25,6 @@ export default function LockerList() {
         modal.current.open();
     }
 
-    // function handleUpdateLockers(event) {
-    //     event.preventDefault();
-        
-    //     fetch('http://localhost:3000/lockers')
-    //     .then(res => {
-    //         return res.json();
-    //     })
-    //     .then((data) => {
-    //         setLockers(data);
-    //     }); 
-    // }
-
-
     function cancelAddLocker() {
         modal.current.close();
     }

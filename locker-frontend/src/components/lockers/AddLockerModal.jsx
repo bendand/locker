@@ -4,6 +4,8 @@ import { useState, forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
 import { useInput } from "../../hooks/useInput";
 import { isNotEmpty } from "../../util/validation";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 
 
@@ -51,6 +53,8 @@ const AddLockerModal = forwardRef(function AddLockerModal({
 
                 dialog.current.close();
                 onAdd();
+                toast('Locker Added!');
+                
 
             } catch (err) {
                 console.log("Error: ", err)
