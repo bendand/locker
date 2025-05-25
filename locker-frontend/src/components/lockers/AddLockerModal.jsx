@@ -7,8 +7,6 @@ import { isNotEmpty } from "../../util/validation";
 import { ToastContainer, toast } from 'react-toastify';
 
 
-
-
 const AddLockerModal = forwardRef(function AddLockerModal({ 
     onCancel, 
     onAdd }, 

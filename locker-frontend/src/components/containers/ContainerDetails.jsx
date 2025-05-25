@@ -7,7 +7,6 @@ import Header from "../Header";
 
 import { useState, useEffect, useRef } from 'react';
 
-// import { containers } from "../../assets/util";
 
 export default function ContainerDetails() {
     const { lockerId, containerId } = useParams();
@@ -47,16 +46,16 @@ export default function ContainerDetails() {
                 <h3>Items in {containerName} container in {lockerName}</h3>
                 <button onClick={handleStartAddItem}>Add Item</button>
             </div>
-            <div>
+            <ul>
                 {items.map((item, idx) => (
-                    <div key={idx}>
+                    <li key={idx}>
                         <ContainerItemLabel
                             itemName={item}
                             itemIdx={idx}
                         />
-                    </div>
+                    </li>
                 ))}
-            </div>
+            </ul>
             <AddContainerItemModal 
                 ref={modal}
                 onCancel={cancelAddItem}

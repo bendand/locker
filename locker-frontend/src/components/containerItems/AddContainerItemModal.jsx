@@ -19,16 +19,21 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
         setItemName(event.target.value);
     }
 
+    // function that handles add item submission
     function handleSubmit(formData) {
         const name = formData.get("itemName");
-
+        // fetches locker data with the locker id chained onto url
         fetch(`http://localhost:3000/lockers/${lockerId}`)
         .then((res) => res.json())
         .then((data) => {
+            // makes a copy of locker containers
             const updatedContainers = [...data.lockerContainers];
+            // then finds the target container to be updated
             const targetContainer = updatedContainers.find(container => container.containerId === containerId);
+            // adds form input to target container
             targetContainer.containerItems = [...targetContainer.containerItems, name];
 
+            // returns
             return fetch(`http://localhost:3000/lockers/${lockerId}`, {
                 method: "PATCH",
                 headers: {
@@ -37,13 +42,14 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
                 body: JSON.stringify({ lockerContainers: updatedContainers })
             });
         })
-        .then(res => res.json())
+        .then(res => {
+            return res.json();
+        })
         .then(updatedLocker => {
             dialog.current.close();
             toast('Item Added!');
             onAdd();
-        })
-        .catch(err => console.error("Updating locker container items failed:", err));
+        });
     }
 
     useImperativeHandle(ref, () => {

@@ -1,13 +1,16 @@
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import Header from "../Header";
 import ContainerLabel from "../containers/ContainerLabel";
-import { useEffect, useState } from "react";
-
+import Modal from "../Modal";
+import { useEffect, useState, useRef } from "react";
+import { toast } from 'react-toastify';
 
 
 export default function LockerDetails() {
     const [lockerData, setLockerData] = useState(null);
     let { lockerId } = useParams();
+    const modal = useRef();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch('http://localhost:3000/lockers')
@@ -27,6 +30,33 @@ export default function LockerDetails() {
         }); 
     }, []);
 
+    function handleStartDeleteLocker() {
+        modal.current.open();
+    }
+
+    function handleCancelDeleteLocker() {
+        modal.current.close();
+    }
+
+    function handleDeleteLocker() {
+        fetch(`http://localhost:3000/lockers/${lockerId}`, {
+            method: "DELETE",
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(updatedLockers => {
+            console.log(updatedLockers);
+            modal.current.close();
+            toast('Locker Deleted');
+            navigate('/lockerlist');
+            return
+        })
+        .catch(err => {
+            console.error(err);
+        })
+    }
+
 
     return (
         <>
@@ -36,24 +66,32 @@ export default function LockerDetails() {
                     <>
                         <div>
                             <h4>Containers in {lockerData.lockerName}</h4>
+                            <button onClick={handleStartDeleteLocker}>Delete Storage Locker</button>
                         </div>
-                        <div>
+                        <ul>
                             {lockerData.lockerContainers.map((container, idx) => (
-                                <div key={container.containerId}>
+                                <li key={container.containerId}>
                                     <ContainerLabel
                                         lockerName={lockerData.lockerName}
                                         containerItems={container.containerItems}
                                         containerName={container.containerName}
                                         containerId={container.containerId}
                                     />
-                                </div>
+                                </li>
                             ))}
-                        </div>
+                        </ul>
                     </>
                 ) : (
                     <p>Loading...</p>
                 )}
             </div>
+            <Modal
+                ref={modal}
+                onCancel={handleCancelDeleteLocker}
+                onDelete={handleDeleteLocker}
+            >
+                Are you sure you want to delete the storage locker?
+            </Modal>
         </>
     );
 }
