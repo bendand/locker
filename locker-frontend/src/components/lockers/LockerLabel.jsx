@@ -11,7 +11,6 @@ export default function LockerLabel({ lockerId, lockerName, lockerAddress }) {
         <div key={lockerId}>
             <Link 
                 to={`${lockerId}`}
-                element={<LockerDetails/>}
             >
                 <h4>{lockerName}</h4>
             </Link>

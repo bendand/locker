@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 export default function LockerDetails() {
     const [lockerData, setLockerData] = useState(null);
     let { lockerId } = useParams();
-    console.log(lockerId);
 
     useEffect(() => {
         fetch('http://localhost:3000/lockers')
@@ -28,12 +27,6 @@ export default function LockerDetails() {
         }); 
     }, []);
 
-    if (lockerData) {
-        console.log(lockerData);
-    }
-
-    // console.log(lockerData);
-
 
     return (
         <>
@@ -48,9 +41,9 @@ export default function LockerDetails() {
                             {lockerData.lockerContainers.map((container, idx) => (
                                 <div key={container.containerId}>
                                     <ContainerLabel
-                                        lockerId={lockerData.id}
                                         lockerName={lockerData.lockerName}
                                         containerItems={container.containerItems}
+                                        containerName={container.containerName}
                                         containerId={container.containerId}
                                     />
                                 </div>

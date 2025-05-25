@@ -1,19 +1,69 @@
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
+import { useLocation, useParams } from 'react-router-dom';
+import ContainerItemLabel from '../containerItems/ContainerItemLabel';
+import AddContainerItemModal from '../containerItems/AddContainerItemModal';
 
 import Header from "../Header";
 
+import { useState, useEffect, useRef } from 'react';
+
 // import { containers } from "../../assets/util";
 
-export default function ContainerDetails({ lockerName, lockerId, containerItems, containerId }) {
-    // console.log(containerItems);
-    console.log(lockerName);
-    // console.log('in container details');
+export default function ContainerDetails() {
+    const { lockerId, containerId } = useParams();
+    const location = useLocation();
+    const data = location.state.data;
+    const lockerName = data.lockerName;
+    const containerItems = data.containerItems;
+    const containerName = data.containerName;
+    const modal = useRef();
+
+    const [items, setItems] = useState(containerItems);
+
+
+    function handleStartAddItem() {
+        modal.current.open();
+    }
+
+    function cancelAddItem() {
+        modal.current.close();
+    }
+
+    function handleUpdateItems() {
+        fetch(`http://localhost:3000/lockers/${lockerId}`)
+        .then(res => {
+            return res.json();
+        })
+        .then((lockerData) => {
+            setItems(lockerData.lockerContainers[containerId-1].containerItems);
+        }); 
+    }
+
+    
     return (
         <>
             <Header />
             <div>
-                <h3>Items in {lockerName}</h3>
+                <h3>Items in {containerName} container in {lockerName}</h3>
+                <button onClick={handleStartAddItem}>Add Item</button>
             </div>
+            <div>
+                {items.map((item, idx) => (
+                    <div key={idx}>
+                        <ContainerItemLabel
+                            itemName={item}
+                            itemIdx={idx}
+                        />
+                    </div>
+                ))}
+            </div>
+            <AddContainerItemModal 
+                ref={modal}
+                onCancel={cancelAddItem}
+                onAdd={handleUpdateItems}
+                lockerId={lockerId}
+                containerId={containerId}
+            />
         </>
     );
 }
