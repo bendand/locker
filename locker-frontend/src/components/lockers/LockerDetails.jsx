@@ -51,10 +51,7 @@ export default function LockerDetails() {
             toast('Locker Deleted');
             navigate('/lockerlist');
             return
-        })
-        .catch(err => {
-            console.error(err);
-        })
+        });
     }
 
 
