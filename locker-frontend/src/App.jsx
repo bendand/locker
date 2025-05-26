@@ -20,7 +20,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="lockerlist" element={<LockerList />} />
         <Route path="lockerlist/:lockerId" element={<LockerDetails />} />
-        <Route path="lockerlist/:lockerId/:containerId" element={<ContainerDetails />} />
+        <Route path="lockerlist/:lockerId/:containerName" element={<ContainerDetails />} />
       </Routes> 
       <ToastContainer />
     </>

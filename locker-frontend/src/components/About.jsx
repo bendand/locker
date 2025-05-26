@@ -6,8 +6,9 @@ export default function About() {
             <Navigation />
             <main>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut aliquam, arcu vel 
-                    mollis dignissim, augue ligula rhoncus nibh, vitae faucibus elit neque non lectus. 
+                    Locker was a tool created with the intention of being your brain for everything storage-related.
+                    Locker can be useful to you whether you're a contractor, event planner, property manager, or someone
+                    trying to store their items more thoughtfully. 
                 </p>
             </main>
         </>

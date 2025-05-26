@@ -6,7 +6,6 @@
       "lockerContainers": [
         {
           "containerName": "boy's bedroom",
-          "containerId": "1",
           "containerItems": [
             "clothes hangers",
             "coats",
@@ -16,7 +15,6 @@
         },
         {
           "containerName": "main bedroom",
-          "containerId": "2",
           "containerItems": [
             "book",
             "computer monitor",
@@ -33,7 +31,6 @@
       "lockerContainers": [
         {
           "containerName": "kitchen",
-          "containerId": "1",
           "containerItems": [
             "kitchen knives",
             "spatula",
@@ -51,12 +48,12 @@
         },
         {
           "containerName": "game room",
-          "containerId": "2",
           "containerItems": [
             "trading cards",
             "spatula",
             "board game",
-            "silverware"
+            "silverware",
+            "2 decks of cards"
           ]
         }
       ],
@@ -68,7 +65,6 @@
       "lockerContainers": [
         {
           "containerName": "kitchen",
-          "containerId": "1",
           "containerItems": [
             "book",
             "spatula",
@@ -78,7 +74,6 @@
         },
         {
           "containerName": "family room",
-          "containerId": "2",
           "containerItems": [
             "trading cards",
             "spatula",

@@ -1,11 +1,8 @@
 import LockerLabel from "./LockerLabel";
 import Header from "../Header";
-
+import Footer from "../Footer";
 import AddLockerModal from "./AddLockerModal";
-
-import { Link } from "react-router-dom";
 import { useRef, useEffect, useState } from "react";
-import LockerDetails from "./LockerDetails";
 
 export default function LockerList() {
     const [lockers, setLockers] = useState(null);
@@ -57,6 +54,7 @@ export default function LockerList() {
                     onAdd={setLockers}
                 />
             </main>
+            <Footer />
         </>
     );
 }

@@ -1,9 +1,7 @@
-import { useState, forwardRef, useRef, useImperativeHandle } from 'react';
+import { forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
-import { ToastContainer, toast } from 'react-toastify';
 
-const Modal = forwardRef(function Modal({
-    children,
+const DeleteContainerModal = forwardRef(function DeleteContainerModal({
     onCancel,
     onDelete },
     ref) {
@@ -25,9 +23,9 @@ const Modal = forwardRef(function Modal({
             <div>
                 <button onClick={onCancel}>X</button>
             </div>
-            {children}
+            Are you sure you want to delete container?
             <div>
-                <button onClick={onDelete}>Delete Locker</button>
+                <button onClick={onDelete}>Delete</button>
             </div>
         </dialog>,
         document.getElementById('modal-root')
@@ -35,4 +33,4 @@ const Modal = forwardRef(function Modal({
 });
 
 
-export default Modal
+export default DeleteContainerModal

@@ -2,14 +2,14 @@ import React from "react";
 import { useNavigate } from "react-router";
 import { useState, forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify'; 
 
 
 const AddContainerItemModal = forwardRef(function AddContainerItemModal({ 
     onCancel, 
     onAdd,
     lockerId,
-    containerId }, 
+    containerName }, 
     ref) {
 
     const [itemName, setItemName] = useState('');
@@ -29,11 +29,11 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
             // makes a copy of locker containers
             const updatedContainers = [...data.lockerContainers];
             // then finds the target container to be updated
-            const targetContainer = updatedContainers.find(container => container.containerId === containerId);
+            const targetContainer = updatedContainers.find(container => container.containerName === containerName);
             // adds form input to target container
             targetContainer.containerItems = [...targetContainer.containerItems, name];
 
-            // returns
+            
             return fetch(`http://localhost:3000/lockers/${lockerId}`, {
                 method: "PATCH",
                 headers: {
@@ -74,7 +74,7 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
                 </button>
                 <form action={handleSubmit} id="item-form">
                     <div>
-                        <label htmlFor="name">Item Name</label>
+                        <label htmlFor="name">Item Name: </label>
                         <input
                             type="text" 
                             name="itemName" 

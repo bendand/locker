@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import ContainerDetails from "./ContainerDetails";
 
-export default function ContainerLabel({ lockerName, containerItems, containerName, containerId }) {
+export default function ContainerLabel({ lockerName, containerItems, containerName }) {
 
     const data = { 
         lockerName, 
@@ -10,12 +10,12 @@ export default function ContainerLabel({ lockerName, containerItems, containerNa
     }
 
     return (
-        <div key={containerId}>
+        <div key={containerName}>
             <Link
-                to={`${containerId}`}
+                to={`${containerName}`}
                 state={{ data }}
             >
-                <p>{containerName} container</p>
+                <p>{containerName}</p>
             </Link>
             <p><em></em></p>
         </div>

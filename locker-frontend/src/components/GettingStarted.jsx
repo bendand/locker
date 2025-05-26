@@ -13,8 +13,7 @@ export default function GettingStarted() {
                 <img className="homepage-image" src="george-pagan-iii.jpg" alt="boxes in an attic" />
                 <h3>Outsource your organizational overhead</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et
-                    consequat velit, sit amet tempus lectus. Nam mattis dignissim dolor.
+                    Locker is your bookkeeper for everything storage-related 
                 </p>
                 <div>
                     <Link to={`lockerlist`} element={<LockerList />}><button>Get Started</button></Link>

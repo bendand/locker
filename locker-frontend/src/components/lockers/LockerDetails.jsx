@@ -1,7 +1,8 @@
 import { useParams, useNavigate } from "react-router";
 import Header from "../Header";
 import ContainerLabel from "../containers/ContainerLabel";
-import Modal from "../Modal";
+import DeleteLockerModal from "../DeleteLockerModal";
+import AddContainerModal from "../containers/AddContainerModal";
 import { useEffect, useState, useRef } from "react";
 import { toast } from 'react-toastify';
 
@@ -9,8 +10,11 @@ import { toast } from 'react-toastify';
 export default function LockerDetails() {
     const [lockerData, setLockerData] = useState(null);
     let { lockerId } = useParams();
-    const modal = useRef();
+    const deleteLockerModal = useRef();
+    const addContainerModal = useRef();
     const navigate = useNavigate();
+
+    const hasContainers = lockerData && lockerData.lockerContainers.length > 0;
 
     useEffect(() => {
         fetch('http://localhost:3000/lockers')
@@ -28,14 +32,22 @@ export default function LockerDetails() {
 
             setLockerData(currLockerData);
         }); 
-    }, []);
+    }, [lockerData]);
 
     function handleStartDeleteLocker() {
-        modal.current.open();
+        deleteLockerModal.current.open();
     }
 
     function handleCancelDeleteLocker() {
-        modal.current.close();
+        deleteLockerModal.current.close();
+    }
+
+    function handleStartAddContainer() {
+        addContainerModal.current.open();
+    }
+
+    function handleCancelAddContainer() {
+        addContainerModal.current.close();
     }
 
     function handleDeleteLocker() {
@@ -47,7 +59,7 @@ export default function LockerDetails() {
         })
         .then(updatedLockers => {
             console.log(updatedLockers);
-            modal.current.close();
+            deleteLockerModal.current.close();
             toast('Locker Deleted');
             navigate('/lockerlist');
             return
@@ -59,36 +71,41 @@ export default function LockerDetails() {
         <>
             <Header />
             <div className="locker-details">
-                {lockerData ? (
+                {lockerData && (
                     <>
                         <div>
-                            <h4>Containers in {lockerData.lockerName}</h4>
+                            <h4>{lockerData.lockerName}</h4>
                             <button onClick={handleStartDeleteLocker}>Delete Storage Locker</button>
                         </div>
                         <ul>
                             {lockerData.lockerContainers.map((container, idx) => (
-                                <li key={container.containerId}>
+                                <li key={idx}>
                                     <ContainerLabel
                                         lockerName={lockerData.lockerName}
                                         containerItems={container.containerItems}
                                         containerName={container.containerName}
-                                        containerId={container.containerId}
                                     />
                                 </li>
                             ))}
                         </ul>
                     </>
-                ) : (
-                    <p>Loading...</p>
                 )}
+                {!hasContainers && (
+                    <p>There are no containers to display.</p>
+                )}
+                <button onClick={handleStartAddContainer}>Add Container</button>
             </div>
-            <Modal
-                ref={modal}
+            <DeleteLockerModal
+                ref={deleteLockerModal}
                 onCancel={handleCancelDeleteLocker}
                 onDelete={handleDeleteLocker}
-            >
-                Are you sure you want to delete the storage locker?
-            </Modal>
+            />
+            <AddContainerModal
+                lockerId={lockerId}
+                ref={addContainerModal}
+                onCancel={handleCancelAddContainer}
+                onAdd={setLockerData}
+            />
         </>
     );
 }
