@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router";
 import Header from "../Header";
 import ContainerLabel from "../containers/ContainerLabel";
-import DeleteLockerModal from "../DeleteLockerModal";
+import DeleteLockerModal from "./DeleteLockerModal";
 import AddContainerModal from "../containers/AddContainerModal";
 import { useEffect, useState, useRef } from "react";
 import { toast } from 'react-toastify';

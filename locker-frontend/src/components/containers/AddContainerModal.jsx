@@ -64,7 +64,7 @@ const AddContainerModal = forwardRef(function AddContainerModal({
             <div>
                 <button onClick={onCancel}>X</button>
             </div>
-            <p>Choose a unique container name</p>
+            <p>Choose a unique container name.</p>
             <form action={handleSubmit}>
                 <label htmlFor="container-name">Container name: </label>
                 <input 

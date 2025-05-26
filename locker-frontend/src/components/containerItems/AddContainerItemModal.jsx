@@ -46,6 +46,7 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
             return res.json();
         })
         .then(updatedLocker => {
+            setItemName('');
             dialog.current.close();
             toast('Item Added!');
             onAdd();
@@ -74,6 +75,7 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
                 </button>
                 <form action={handleSubmit} id="item-form">
                     <div>
+                        <p>Choose a unique item name.</p>
                         <label htmlFor="name">Item Name: </label>
                         <input
                             type="text" 

@@ -1,8 +1,5 @@
 import { Link } from "react-router-dom";
-
-
 import AboutPage from "./About";
-import AuthModal from "./AuthModal";
 
 export default function Header() {
     

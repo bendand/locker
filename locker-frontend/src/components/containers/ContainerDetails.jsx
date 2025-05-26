@@ -2,7 +2,9 @@
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import ContainerItemLabel from '../containerItems/ContainerItemLabel';
 import AddContainerItemModal from '../containerItems/AddContainerItemModal';
+import DeleteContainerItemModal from '../containerItems/DeleteContainerItemModal';
 import DeleteContainerModal from './DeleteContainerModal';
+
 
 import Header from "../Header";
 import { useState, useRef } from 'react';
@@ -17,13 +19,13 @@ export default function ContainerDetails() {
     const lockerName = data.lockerName;
     const containerItems = data.containerItems;
     const addItemModal = useRef();
+    // const deleteItemModal = useRef();
     const deleteContainerModal = useRef();
 
     const navigate = useNavigate();
 
     const [items, setItems] = useState(containerItems);
     const hasItems = containerItems.length > 0;
-
 
     function handleStartAddItem() {
         addItemModal.current.open();
@@ -91,6 +93,7 @@ export default function ContainerDetails() {
                         <ContainerItemLabel
                             itemName={item}
                             itemIdx={idx}
+                            onDeleteItem={handleUpdateItems}
                         />
                     </li>
                 ))}

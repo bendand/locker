@@ -83,6 +83,12 @@
         }
       ],
       "id": "d5ba"
+    },
+    {
+      "id": "e777",
+      "lockerName": "test",
+      "lockerAddress": "sometest",
+      "lockerContainers": []
     }
   ]
 }

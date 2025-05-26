@@ -1,10 +1,7 @@
-import React from "react";
 import { useNavigate } from "react-router";
 import { useState, forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
-import { useInput } from "../../hooks/useInput";
-import { isNotEmpty } from "../../util/validation";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 
 const AddLockerModal = forwardRef(function AddLockerModal({ 

@@ -1,15 +1,13 @@
 import './App.css'
 import { Routes, Route} from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 
 
 import About from './components/About';
 import Home from './components/Home';
-import Dashboard from './components/Dashboard';
 import LockerDetails from './components/lockers/LockerDetails';
 import ContainerDetails from './components/containers/ContainerDetails';
 import LockerList from './components/lockers/LockerList';
-import LockerLabel from './components/lockers/LockerLabel';
 
 
 function App() {
