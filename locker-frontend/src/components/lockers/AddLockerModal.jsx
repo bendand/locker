@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router";
 import { useState, forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
 import { toast } from 'react-toastify';
@@ -14,9 +13,9 @@ const AddLockerModal = forwardRef(function AddLockerModal({
         lockerAddress: ''
     });
 
-    let navigate = useNavigate();
     const dialog = useRef();
 
+    // function that sets new values when inputs are changed
     function handleInputChange(event) {
         const { name, value } = event.target;
         
@@ -26,39 +25,30 @@ const AddLockerModal = forwardRef(function AddLockerModal({
         }));
     }
 
+    // uses form data to add new locker to json file
     function handleSubmit(formData) {
         const name = formData.get("lockerName");
         const address = formData.get("lockerAddress");
         const url = "http://localhost:3000/lockers";
 
-        const postAPI = () => {
-            console.log('post api entered');
-            try {
-                fetch(url, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        lockerName: name,
-                        lockerAddress: address,
-                        lockerContainers: []
-                    })
-                });
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                lockerName: name,
+                lockerAddress: address,
+                lockerContainers: []
+            })
+        });
 
-                dialog.current.close();
-                onAdd();
-                toast('Locker Added!');
-                
-
-            } catch (err) {
-                console.log("Error: ", err)
-            }
-        }
-
-        postAPI();
+        dialog.current.close();
+        onAdd();
+        toast('Locker Added!');
     }
 
+    // hook that exposes methods used to control modal
     useImperativeHandle(ref, () => {
         return {
             open() {

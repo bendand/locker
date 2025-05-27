@@ -53,6 +53,7 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
         });
     }
 
+    // hook that exposes methods used to control modal
     useImperativeHandle(ref, () => {
         return {
             open() {

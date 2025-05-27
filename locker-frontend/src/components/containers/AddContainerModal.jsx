@@ -15,6 +15,7 @@ const AddContainerModal = forwardRef(function AddContainerModal({
         setContainerName(event.target.value);
     }
 
+    // hook that exposes methods used to control modal
     useImperativeHandle(ref, () => {
         return {
             open() {
@@ -26,6 +27,7 @@ const AddContainerModal = forwardRef(function AddContainerModal({
         };
     });
 
+    // uses form data to post new container
     function handleSubmit(formData) {
         const name = formData.get("container-name");
 
@@ -38,8 +40,10 @@ const AddContainerModal = forwardRef(function AddContainerModal({
                 "containerName": name,
                 "containerItems": []
             }
+            // spread operator used to populate current data, add new container to array
             const updatedContainers = [...data.lockerContainers, newContainer];
             
+            // patch method used to make updates to containers data
             return fetch(`http://localhost:3000/lockers/${lockerId}`, {
                 method: "PATCH",
                 headers: {

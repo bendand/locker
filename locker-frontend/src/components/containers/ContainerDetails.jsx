@@ -2,7 +2,6 @@
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import ContainerItemLabel from '../containerItems/ContainerItemLabel';
 import AddContainerItemModal from '../containerItems/AddContainerItemModal';
-import DeleteContainerItemModal from '../containerItems/DeleteContainerItemModal';
 import DeleteContainerModal from './DeleteContainerModal';
 
 
@@ -19,14 +18,14 @@ export default function ContainerDetails() {
     const lockerName = data.lockerName;
     const containerItems = data.containerItems;
     const addItemModal = useRef();
-    // const deleteItemModal = useRef();
     const deleteContainerModal = useRef();
-
     const navigate = useNavigate();
-
     const [items, setItems] = useState(containerItems);
+
+    // variable used to display conditional content
     const hasItems = containerItems.length > 0;
 
+    // controls open and close of add item modal
     function handleStartAddItem() {
         addItemModal.current.open();
     }
@@ -35,6 +34,7 @@ export default function ContainerDetails() {
         addItemModal.current.close();
     }
 
+    // controls open and close of delete container modal
     function handleStartDeleteContainer() {
         deleteContainerModal.current.open();
     }
@@ -44,12 +44,14 @@ export default function ContainerDetails() {
     }
 
 
+    // called to retrieve new data after container item has been added
     function handleUpdateItems() {
         fetch(`http://localhost:3000/lockers/${lockerId}`)
         .then(res => {
             return res.json();
         })
         .then((lockerData) => {
+            // find method used to find container to update
             const updatedItems = lockerData.lockerContainers.find(container => container.containerName === containerName).containerItems;
             setItems(updatedItems);
         }); 
@@ -61,8 +63,12 @@ export default function ContainerDetails() {
             return res.json();
         })
         .then((lockerData) => {
+            // deletes container by removing each instance of container name
+            // definitely not ideal, but I'll get back this problem on future iterations
             const updatedContainers = lockerData.lockerContainers.filter(container => container.containerName !== containerName);
             
+            // patch method to update containers, didn't find a way to make a delete method work here given 
+            // json data structure limitations
             return fetch(`http://localhost:3000/lockers/${lockerId}`, {
                 method: "PATCH",
                 headers: {

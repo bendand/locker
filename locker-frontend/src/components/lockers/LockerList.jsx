@@ -8,6 +8,7 @@ export default function LockerList() {
     const [lockers, setLockers] = useState(null);
     const modal = useRef();
 
+    // effect that fectches lockers in json file
     useEffect(() => {
         fetch('http://localhost:3000/lockers')
         .then(res => {
@@ -16,8 +17,13 @@ export default function LockerList() {
         .then((data) => {
             setLockers(data);
         }); 
-    }, [lockers]);
 
+    }, [lockers]);
+    // dependency above is used to run the effect when locker is added by add locker modal
+    // which then updates the locker data
+
+
+    // start add, cancel add functions to open and close modal
     function handleStartAddLocker() {
         modal.current.open();
     }
@@ -36,17 +42,17 @@ export default function LockerList() {
                         <h3>My Storage Lockers</h3> 
                         <button onClick={handleStartAddLocker}>Add +</button>
                     </div>
-                    <div className="lockerlist-lockers"> 
+                    <ul> 
                         {lockers && lockers.map((locker, idx) => (
-                            <div key={idx}>
+                            <li key={idx}>
                                 <LockerLabel 
                                     lockerId={locker.id}
                                     lockerName={locker.lockerName} 
                                     lockerAddress={locker.lockerAddress}
                                 />
-                            </div>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
                 <AddLockerModal
                     ref={modal}

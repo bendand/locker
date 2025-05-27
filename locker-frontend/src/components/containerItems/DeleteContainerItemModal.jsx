@@ -7,6 +7,7 @@ const DeleteContainerItemModal = forwardRef(function DeleteContainerItemModal({
     ref) {
     const dialog = useRef();
 
+    // hook that exposes methods used to control modal
     useImperativeHandle(ref, () => {
         return {
             open() {
