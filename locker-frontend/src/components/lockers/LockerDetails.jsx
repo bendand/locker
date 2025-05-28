@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router";
 import Header from "../Header";
 import Footer from "../Footer";
+import Button from "../elements/button/Button";
 import ContainerLabel from "../containers/ContainerLabel";
 import DeleteLockerModal from "./DeleteLockerModal";
 import AddContainerModal from "../containers/AddContainerModal";
@@ -68,31 +69,35 @@ export default function LockerDetails() {
     return (
         <>
             <Header />
-            <div className="locker-details">
-                {lockerData && (
-                    <>
-                        <div>
-                            <h4>{lockerData.lockerName}</h4>
-                            <button onClick={handleStartDeleteLocker}>Delete Storage Locker</button>
-                        </div>
-                        <ul>
-                            {lockerData.lockerContainers.map((container, idx) => (
-                                <li key={idx}>
-                                    <ContainerLabel
-                                        lockerName={lockerData.lockerName}
-                                        containerItems={container.containerItems}
-                                        containerName={container.containerName}
-                                    />
-                                </li>
-                            ))}
-                        </ul>
-                    </>
-                )}
-                {!hasContainers && (
-                    <p>There are no containers to display.</p>
-                )}
-                <button onClick={handleStartAddContainer}>Add Container</button>
-            </div>
+            <main>
+                <div className="locker-details">
+                    {lockerData && (
+                        <>
+                            <div>
+                                <span>
+                                    <strong>Containers in {lockerData.lockerName} </strong>
+                                    <Button onClick={handleStartDeleteLocker}>Delete Locker</Button>
+                                </span>
+                            </div>
+                            <ul className="container-list">
+                                {lockerData.lockerContainers.map((container, idx) => (
+                                    <li key={idx}>
+                                        <ContainerLabel
+                                            lockerName={lockerData.lockerName}
+                                            containerItems={container.containerItems}
+                                            containerName={container.containerName}
+                                        />
+                                    </li>
+                                ))}
+                            </ul>
+                        </>
+                    )}
+                    {!hasContainers && (
+                        <p>There are no containers to display.</p>
+                    )}
+                    <Button onClick={handleStartAddContainer}>Add Container</Button>
+                </div>
+            </main>
             <DeleteLockerModal
                 ref={deleteLockerModal}
                 onCancel={handleCancelDeleteLocker}
@@ -104,6 +109,7 @@ export default function LockerDetails() {
                 onCancel={handleCancelAddContainer}
                 onAdd={setLockerData}
             />
+            <Footer />
         </>
     );
 }

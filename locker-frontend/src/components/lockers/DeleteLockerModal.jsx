@@ -1,5 +1,6 @@
 import { forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
+import Button from '../elements/button/Button';
 
 const DeleteLockerModal = forwardRef(function DeleteLockerModal({
     onCancel,
@@ -23,11 +24,11 @@ const DeleteLockerModal = forwardRef(function DeleteLockerModal({
     return createPortal(
         <dialog ref={dialog}>
             <div>
-                <button onClick={onCancel}>X</button>
+                <Button onClick={onCancel}>X</Button>
             </div>
             Are you sure you want to delete locker?
             <div>
-                <button onClick={onDelete}>Delete</button>
+                <Button onClick={onDelete}>Delete</Button>
             </div>
         </dialog>,
         document.getElementById('modal-root')

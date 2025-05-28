@@ -1,4 +1,5 @@
 import DeleteContainerItemModal from "./DeleteContainerItemModal";
+import Button from "../elements/button/Button";
 import { useRef } from "react";
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify'; 
@@ -55,7 +56,7 @@ export default function ContainerItemLabel({ itemName, itemIdx, onDeleteItem }) 
         <>
             <div key={itemIdx}>
                 <p>{itemName}</p>
-                <button onClick={handleStartDeleteItem}>Delete</button>
+                <Button onClick={handleStartDeleteItem}>Delete</Button>
             </div>
             <DeleteContainerItemModal
                 ref={deleteItemModal}

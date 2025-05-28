@@ -1,6 +1,7 @@
 import { useState, forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
 import { toast } from 'react-toastify';
+import Button from '../elements/button/Button';
 
 
 const AddLockerModal = forwardRef(function AddLockerModal({ 
@@ -64,14 +65,14 @@ const AddLockerModal = forwardRef(function AddLockerModal({
     return createPortal(
         <dialog ref={dialog}>
             <div className="modal">
-                <button 
+                <Button 
                     onClick={onCancel}
                 >
                     X
-                </button>
+                </Button>
                 <form action={handleSubmit} id="locker-form">
                     <div>
-                        <label htmlFor="name">Locker Name</label>
+                        <label htmlFor="name">Locker Name: </label>
                         <input
                             type="text" 
                             name="lockerName" 
@@ -81,7 +82,7 @@ const AddLockerModal = forwardRef(function AddLockerModal({
                         />
                     </div>
                     <div>
-                        <label htmlFor="address">Locker Address</label>
+                        <label htmlFor="address">Locker Address: </label>
                         <input
                             type="text" 
                             name="lockerAddress"
@@ -91,7 +92,7 @@ const AddLockerModal = forwardRef(function AddLockerModal({
                         />
                     </div>
                     <div>
-                        <button type="submit">Add Locker</button>
+                        <Button type="submit">Add Locker</Button>
                     </div>
                 </form>
             </div>

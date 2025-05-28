@@ -1,6 +1,7 @@
 import LockerLabel from "./LockerLabel";
 import Header from "../Header";
 import Footer from "../Footer";
+import Button from "../elements/button/Button";
 import AddLockerModal from "./AddLockerModal";
 import { useRef, useEffect, useState } from "react";
 
@@ -38,10 +39,10 @@ export default function LockerList() {
             <Header />
             <main>
                 <div className="lockerlist-container">
-                    <div className="lockerlist-header">
-                        <h3>My Storage Lockers</h3> 
-                        <button onClick={handleStartAddLocker}>Add +</button>
-                    </div>
+                    <span className="lockerlist-header">
+                        <strong>My Storage Lockers </strong> 
+                        <Button onClick={handleStartAddLocker}>Add +</Button>
+                    </span>
                     <ul> 
                         {lockers && lockers.map((locker, idx) => (
                             <li key={idx}>

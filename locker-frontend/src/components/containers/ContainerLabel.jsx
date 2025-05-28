@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import ContainerDetails from "./ContainerDetails";
 
 export default function ContainerLabel({ lockerName, containerItems, containerName }) {
     const data = { 

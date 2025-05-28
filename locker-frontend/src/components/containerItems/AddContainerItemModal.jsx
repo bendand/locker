@@ -1,8 +1,7 @@
-import React from "react";
-import { useNavigate } from "react-router";
 import { useState, forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
 import { toast } from 'react-toastify'; 
+import Button from '../elements/button/Button';
 
 
 const AddContainerItemModal = forwardRef(function AddContainerItemModal({ 
@@ -69,11 +68,11 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
     return createPortal(
         <dialog ref={dialog}>
             <div className="modal">
-                <button 
+                <Button 
                     onClick={onCancel}
                 >
                     X
-                </button>
+                </Button>
                 <form action={handleSubmit} id="item-form">
                     <div>
                         <p>Choose a unique item name.</p>
@@ -87,7 +86,7 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
                         />
                     </div>
                     <div>
-                        <button type="submit">Add Item</button>
+                        <Button type="submit">Add Item</Button>
                     </div>
                 </form>
             </div>

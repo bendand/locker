@@ -1,6 +1,7 @@
 import { forwardRef, useRef, useImperativeHandle, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { toast } from 'react-toastify';
+import Button from '../elements/button/Button';
 
 const AddContainerModal = forwardRef(function AddContainerModal({
     lockerId,
@@ -66,7 +67,7 @@ const AddContainerModal = forwardRef(function AddContainerModal({
     return createPortal(
         <dialog ref={dialog}>
             <div>
-                <button onClick={onCancel}>X</button>
+                <Button onClick={onCancel}>X</Button>
             </div>
             <p>Choose a unique container name.</p>
             <form action={handleSubmit}>
@@ -78,7 +79,7 @@ const AddContainerModal = forwardRef(function AddContainerModal({
                     required
                 />
                 <div>
-                    <button type='submit'>Add Container</button>
+                    <Button type='submit'>Add Container</Button>
                 </div>
             </form>
         </dialog>,

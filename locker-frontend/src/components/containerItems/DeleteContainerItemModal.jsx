@@ -1,6 +1,8 @@
 import { forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
 
+import Button from '../elements/button/Button';
+
 const DeleteContainerItemModal = forwardRef(function DeleteContainerItemModal({
     onCancel,
     onProceed },
@@ -23,11 +25,11 @@ const DeleteContainerItemModal = forwardRef(function DeleteContainerItemModal({
     return createPortal(
         <dialog ref={dialog}>
             <div>
-                <button onClick={onCancel}>X</button>
+                <Button onClick={onCancel}>X</Button>
             </div>
             Are you sure you want to delete item?
             <div>
-                <button onClick={onProceed}>Delete</button>
+                <Button onClick={onProceed}>Delete</Button>
             </div>
         </dialog>,
         document.getElementById('modal-root')

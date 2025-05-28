@@ -5,22 +5,26 @@
       "lockerAddress": "123 S 4th St",
       "lockerContainers": [
         {
-          "containerName": "boy's bedroom",
+          "containerName": "kids room",
+          "containerItems": []
+        },
+        {
+          "containerName": "family room",
           "containerItems": [
-            "clothes hangers",
-            "coats",
-            "bedding",
-            "Xbox"
+            "lamp",
+            "shoes",
+            "soccer ball",
+            "more items",
+            "another item"
           ]
         },
         {
-          "containerName": "main bedroom",
-          "containerItems": [
-            "book",
-            "computer monitor",
-            "board game",
-            "shower curtain"
-          ]
+          "containerName": "anothalonglonglonglonglonglonglonglong",
+          "containerItems": []
+        },
+        {
+          "containerName": "sdf",
+          "containerItems": []
         }
       ],
       "id": "0b90"
@@ -85,10 +89,15 @@
       "id": "d5ba"
     },
     {
-      "id": "e777",
-      "lockerName": "test",
-      "lockerAddress": "sometest",
+      "id": "1371",
+      "lockerName": "lockaname",
+      "lockerAddress": "andaddress",
       "lockerContainers": []
     }
-  ]
+  ], 
+
+  "credentials": {
+    "username": "user",
+    "password": 123
+  }
 }

@@ -1,4 +1,3 @@
-// import { useParams } from "react-router";
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import ContainerItemLabel from '../containerItems/ContainerItemLabel';
 import AddContainerItemModal from '../containerItems/AddContainerItemModal';
@@ -6,6 +5,8 @@ import DeleteContainerModal from './DeleteContainerModal';
 
 
 import Header from "../Header";
+import Footer from '../Footer';
+import Button from '../elements/button/Button';
 import { useState, useRef } from 'react';
 import { toast } from 'react-toastify'; 
 
@@ -23,7 +24,8 @@ export default function ContainerDetails() {
     const [items, setItems] = useState(containerItems);
 
     // variable used to display conditional content
-    const hasItems = containerItems.length > 0;
+    const hasItems = items.length > 0;
+    console.log('has items: ', hasItems);
 
     // controls open and close of add item modal
     function handleStartAddItem() {
@@ -91,25 +93,31 @@ export default function ContainerDetails() {
     return (
         <>
             <Header />
-            <h3>Items in <em>{containerName}</em> in {lockerName}</h3>
-            <button onClick={handleStartDeleteContainer}>Delete Container</button>
-            <ul>
-                {items.map((item, idx) => (
-                    <li key={idx}>
-                        <ContainerItemLabel
-                            itemName={item}
-                            itemIdx={idx}
-                            onDeleteItem={handleUpdateItems}
-                        />
-                    </li>
-                ))}
-            </ul>
-            {!hasItems && (
-                <p>There are no items to display.</p>
-            )}
-            <div>
-                <button onClick={handleStartAddItem}>Add Item</button>
-            </div>
+            <main>
+                <div className='container-details'>
+                    <span>
+                        <strong>Items in <em>{containerName}</em> in {lockerName} </strong>
+                        <Button onClick={handleStartDeleteContainer}>Delete Container</Button>
+                    </span>
+                    <ul className='container-item-list'>
+                        {items.map((item, idx) => (
+                            <li key={idx}>
+                                <ContainerItemLabel
+                                    itemName={item}
+                                    itemIdx={idx}
+                                    onDeleteItem={handleUpdateItems}
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                    {!hasItems && (
+                        <p>There are no items to display.</p>
+                    )}
+                    <div>
+                        <Button onClick={handleStartAddItem}>Add Item</Button>
+                    </div>
+                </div>
+            </main>
             <AddContainerItemModal 
                 ref={addItemModal}
                 onCancel={cancelAddItem}
@@ -122,6 +130,7 @@ export default function ContainerDetails() {
                 onCancel={cancelDeleteContainer}
                 onDelete={handleDeleteContainer}
             />
+            <Footer />
         </>
     );
 }

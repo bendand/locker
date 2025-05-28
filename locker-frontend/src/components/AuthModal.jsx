@@ -1,11 +1,14 @@
 import { forwardRef, useRef, useImperativeHandle } from 'react';
 import { createPortal } from 'react-dom';
-import Button from '../elements/button/Button';
+import Button from './elements/button/Button';
+import AuthForm from './elements/form/AuthForm';
 
-const DeleteContainerModal = forwardRef(function DeleteContainerModal({
-    onCancel,
-    onDelete },
+
+const AuthModal = forwardRef(function AuthModal({ 
+    onCancel, 
+    onAuthenticate }, 
     ref) {
+
     const dialog = useRef();
 
     // hook that exposes methods used to control modal
@@ -20,19 +23,22 @@ const DeleteContainerModal = forwardRef(function DeleteContainerModal({
         };
     });
 
+
     return createPortal(
         <dialog ref={dialog}>
-            <div>
-                <Button onClick={onCancel}>X</Button>
-            </div>
-            Are you sure you want to delete container?
-            <div>
-                <Button onClick={onDelete}>Delete</Button>
+            <div className="modal">
+                <Button 
+                    onClick={onCancel}
+                >
+                    X
+                </Button>
+                <AuthForm
+                    onAuthenticate={onAuthenticate}
+                />
             </div>
         </dialog>,
         document.getElementById('modal-root')
     );
 });
 
-
-export default DeleteContainerModal
+export default AuthModal
