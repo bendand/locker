@@ -22,7 +22,7 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
     function handleSubmit(formData) {
         const name = formData.get("itemName");
         // fetches locker data with the locker id chained onto url
-        fetch(`http://localhost:3000/lockers/${lockerId}`)
+        fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`)
         .then((res) => res.json())
         .then((data) => {
             // makes a copy of locker containers
@@ -33,7 +33,7 @@ const AddContainerItemModal = forwardRef(function AddContainerItemModal({
             targetContainer.containerItems = [...targetContainer.containerItems, name];
 
             
-            return fetch(`http://localhost:3000/lockers/${lockerId}`, {
+            return fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"

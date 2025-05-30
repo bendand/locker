@@ -19,7 +19,7 @@ export default function ContainerItemLabel({ itemName, itemIdx, onDeleteItem }) 
 
 
     function handleDeleteItem() {
-        fetch(`http://localhost:3000/lockers/${lockerId}`)
+        fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`)
         .then(res => {
             return res.json();
         })
@@ -34,7 +34,7 @@ export default function ContainerItemLabel({ itemName, itemIdx, onDeleteItem }) 
             });
 
             // patch method uses copied and manipulated data to update locker containers after deletion
-            return fetch(`http://localhost:3000/lockers/${lockerId}`, {
+            return fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"

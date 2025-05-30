@@ -32,7 +32,7 @@ const AddContainerModal = forwardRef(function AddContainerModal({
     function handleSubmit(formData) {
         const name = formData.get("container-name");
 
-        fetch(`http://localhost:3000/lockers/${lockerId}`)
+        fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`)
         .then(res => {
             return res.json();
         })
@@ -45,7 +45,7 @@ const AddContainerModal = forwardRef(function AddContainerModal({
             const updatedContainers = [...data.lockerContainers, newContainer];
             
             // patch method used to make updates to containers data
-            return fetch(`http://localhost:3000/lockers/${lockerId}`, {
+            return fetch(`https://locker-api-uoib.onrender.com/${lockerId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"

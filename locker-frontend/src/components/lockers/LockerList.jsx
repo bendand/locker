@@ -11,7 +11,7 @@ export default function LockerList() {
 
     // effect that fectches lockers in json file
     useEffect(() => {
-        fetch('http://localhost:3000/lockers')
+        fetch('https://locker-api-uoib.onrender.com/lockers')
         .then(res => {
             return res.json();
         })

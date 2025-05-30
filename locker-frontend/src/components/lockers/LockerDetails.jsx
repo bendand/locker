@@ -21,7 +21,7 @@ export default function LockerDetails() {
 
     // effect that fetches containers associated with the locker ID
     useEffect(() => {
-        fetch(`http://localhost:3000/lockers/${lockerId}`)
+        fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`)
         .then(res => {
             return res.json();
         })
@@ -51,7 +51,7 @@ export default function LockerDetails() {
 
     // simple logic needed to delete locker 
     function handleDeleteLocker() {
-        fetch(`http://localhost:3000/lockers/${lockerId}`, {
+        fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`, {
             method: "DELETE",
         })
         .then(res => {

@@ -48,7 +48,7 @@ export default function ContainerDetails() {
 
     // called to retrieve new data after container item has been added
     function handleUpdateItems() {
-        fetch(`http://localhost:3000/lockers/${lockerId}`)
+        fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`)
         .then(res => {
             return res.json();
         })
@@ -60,7 +60,7 @@ export default function ContainerDetails() {
     }
 
     function handleDeleteContainer() {
-        fetch(`http://localhost:3000/lockers/${lockerId}`)
+        fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`)
         .then(res => {
             return res.json();
         })
@@ -71,7 +71,7 @@ export default function ContainerDetails() {
             
             // patch method to update containers, didn't find a way to make a delete method work here given 
             // json data structure limitations
-            return fetch(`http://localhost:3000/lockers/${lockerId}`, {
+            return fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"

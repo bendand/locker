@@ -30,7 +30,7 @@ const AddLockerModal = forwardRef(function AddLockerModal({
     function handleSubmit(formData) {
         const name = formData.get("lockerName");
         const address = formData.get("lockerAddress");
-        const url = "http://localhost:3000/lockers";
+        const url = "https://locker-api-uoib.onrender.com/lockers";
 
         fetch(url, {
             method: 'POST',
