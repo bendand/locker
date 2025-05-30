@@ -27,7 +27,7 @@ export default function AuthForm({ onAuthenticate }) {
         const password = Number(formData.get("password"));
 
         if (!invalidPassword) {
-            fetch('https://locker-api-uoib.onrender.com/')
+            fetch('https://locker-api-uoib.onrender.com/credentials')
             .then(res => {
                 return res.json();
             })
