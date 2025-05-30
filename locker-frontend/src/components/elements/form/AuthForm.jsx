@@ -25,18 +25,13 @@ export default function AuthForm({ onAuthenticate }) {
     function handleSubmit(formData) {
         const username = formData.get("username");
         const password = Number(formData.get("password"));
-        console.log('entered username: ', username);
-        console.log('entered password: ', password);
 
         if (!invalidPassword) {
-            fetch('http://localhost:3000/credentials')
+            fetch('https://locker-api-uoib.onrender.com/')
             .then(res => {
                 return res.json();
             })
             .then(credentials => {
-                console.log('username in credentials: ', credentials.username);
-                console.log('password in credentials: ', credentials.password);
-
                 if (credentials.username !== username || credentials.password !== password) {
 
                     setInvalidCredentials(true);
