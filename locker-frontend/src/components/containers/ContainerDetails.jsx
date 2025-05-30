@@ -99,17 +99,16 @@ export default function ContainerDetails() {
                         <strong>Items in <em>{containerName}</em> in {lockerName} </strong>
                         <Button onClick={handleStartDeleteContainer}>Delete Container</Button>
                     </span>
-                    <ul className='container-item-list'>
+                    <table className='container-item-table'>
                         {items.map((item, idx) => (
-                            <li key={idx}>
-                                <ContainerItemLabel
-                                    itemName={item}
-                                    itemIdx={idx}
-                                    onDeleteItem={handleUpdateItems}
-                                />
-                            </li>
+                            <ContainerItemLabel
+                                key={idx}
+                                itemName={item}
+                                itemIdx={idx}
+                                onDeleteItem={handleUpdateItems}
+                            />
                         ))}
-                    </ul>
+                    </table>
                     {!hasItems && (
                         <p>There are no items to display.</p>
                     )}

@@ -127,12 +127,12 @@ ul {
 
 .container-item-list > li {
   width: 150px;
-  height: 100px;
+  /* height: 100px; */
   margin: 5px;
   box-sizing: border-box;
   padding: 10px;
   border: 1px solid;
-  overflow:hidden;
+  overflow: scroll;
   border-radius: 3px;
   text-align: center;
   
