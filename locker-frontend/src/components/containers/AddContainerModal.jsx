@@ -41,11 +41,13 @@ const AddContainerModal = forwardRef(function AddContainerModal({
                 "containerName": name,
                 "containerItems": []
             }
+
+            console.log(newContainer);
             // spread operator used to populate current data, add new container to array
             const updatedContainers = [...data.lockerContainers, newContainer];
             
             // patch method used to make updates to containers data
-            return fetch(`https://locker-api-uoib.onrender.com/${lockerId}`, {
+            return fetch(`https://locker-api-uoib.onrender.com/lockers/${lockerId}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
