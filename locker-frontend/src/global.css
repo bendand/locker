@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background-color: #F9F6EE;
+  background-color: #FAF9F6;
   font-family:'Times New Roman', Times, serif;
   height: 100%;
 }
@@ -15,12 +15,28 @@ body {
 main {
   display: flex;
   margin-top: 10px;
-  display: flex;
-  align-content: center;
   text-align: center; 
+  flex-direction: row;
   justify-content: center;
   height: 100%;
   overflow-y: scroll;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+
+
+  @media (width < 600px) {
+    flex-direction: column;
+  }
+
+}
+
+a {
+  color: #1E40AF;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #5b7cd6;
 }
 
 .homepage-content {
@@ -33,22 +49,24 @@ main {
   width: 850px;
   align-self: center;
   padding: 20px;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+
+  @media (width < 600px) {
+    flex-direction: column;
+  }
 }
 
-.homepage-content > .left-homepage {
-  padding: 5px;
-}
-
-.homepage-content > .right-homepage {
-  padding: 5px;
-
-}
 
 .homepage-image {
   height: 600px;
   width: 660px;
   border-radius: 8px; 
 
+  @media (width < 800px) {
+    max-width: max-content;
+    max-height: max-content;
+  }
 }
 
 header {
@@ -75,7 +93,12 @@ ul {
 }
 
 .about-container {
-  width: 60%;
+  width: 75%;
+  animation: fadeIn 1s forwards;
+
+  @media (width < 600px) {
+    flex-direction: column;
+  }
 }
 
 .about-container > div {
@@ -84,11 +107,17 @@ ul {
 
 
 .about-image {
-  width: 500px;
+  width: 650px;
+  height: 400px;
   float: left;
   margin: 0 0 1rem 1rem; 
   margin: 10px;
   border-radius: 8px; 
+
+  @media (width < 800px) {
+    max-width: max-content;
+    max-height: max-content;
+  }
 }
 
 .lockerlist-container {
@@ -118,22 +147,25 @@ ul {
   text-align: center;
 }
 
-
-.container-item-list {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 530px;
+.container-item-table {
+  /* place-self: center; */
+  max-width: 60%;
 }
 
-.container-item-list > li {
-  width: 150px;
-  /* height: 100px; */
-  margin: 5px;
-  box-sizing: border-box;
-  padding: 10px;
-  border: 1px solid;
-  overflow: scroll;
-  border-radius: 3px;
-  text-align: center;
-  
+.modal {
+  border-radius: 5px;
+  outline: 5px;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.container-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }

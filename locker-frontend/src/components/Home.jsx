@@ -21,7 +21,7 @@ export default function Home() {
 
     function handleAuthenticate() {
         authModal.current.close();
-        toast('User Authenticated!');
+        toast('Welcome!');
         navigate('/lockerlist');
     }
 

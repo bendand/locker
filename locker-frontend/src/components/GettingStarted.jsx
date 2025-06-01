@@ -1,6 +1,3 @@
-
-import Button from "./elements/button/Button";
-
 export default function GettingStarted({ onStartAuthentication }) {
 
     return (
@@ -18,8 +15,13 @@ export default function GettingStarted({ onStartAuthentication }) {
                     <p>
                         Locker is your bookkeeper for everything storage-related 
                     </p>
-                    <div>
-                        <Button onClick={onStartAuthentication}>Get Started</Button>
+                    <div className="get-started-button-container">
+                        <button 
+                            className='get-started-button'
+                            onClick={onStartAuthentication}
+                        >
+                            Get Started
+                        </button>
                     </div>
                 </div>
             </section>

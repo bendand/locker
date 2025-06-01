@@ -54,10 +54,12 @@ export default function ContainerItemLabel({ itemName, itemIdx, onDeleteItem }) 
 
     return (
         <>
-            <tr key={itemIdx}>
-                <th>{itemName}</th>
-                <th><Button onClick={handleStartDeleteItem}>Delete</Button></th>
-            </tr>
+            <div>
+                <tr key={itemIdx}>
+                    <th>{itemName}</th>
+                    <td><Button onClick={handleStartDeleteItem}>Delete</Button></td>
+                </tr>
+            </div>
             <DeleteContainerItemModal
                 ref={deleteItemModal}
                 onCancel={cancelDeleteItem}
