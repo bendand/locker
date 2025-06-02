@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router";
+import { useParams, useNavigate, Link } from "react-router";
 import Header from "../Header";
 import Footer from "../Footer";
 import Button from "../elements/button/Button";
@@ -75,6 +75,7 @@ export default function LockerDetails() {
                         <>
                             <div>
                                 <span>
+                                    <Link to={'/lockerlist'} className="back-to-label">Back to Locker List</Link>
                                     <strong>Containers in {lockerData.lockerName} </strong>
                                     <Button onClick={handleStartDeleteLocker}>Delete Locker</Button>
                                 </span>

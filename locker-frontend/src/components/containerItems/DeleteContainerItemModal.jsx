@@ -27,7 +27,7 @@ const DeleteContainerItemModal = forwardRef(function DeleteContainerItemModal({
             <div>
                 <Button onClick={onCancel}>X</Button>
             </div>
-            <div>
+            <div className='delete-label'>
                 Are you sure you want to delete item?
             </div>
             <div>

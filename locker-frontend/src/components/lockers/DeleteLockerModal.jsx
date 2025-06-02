@@ -26,7 +26,9 @@ const DeleteLockerModal = forwardRef(function DeleteLockerModal({
             <div>
                 <Button onClick={onCancel}>X</Button>
             </div>
-            Are you sure you want to delete locker?
+            <div className='delete-label'>
+                Are you sure you want to delete locker?
+            </div>
             <div>
                 <Button onClick={onDelete}>Delete</Button>
             </div>

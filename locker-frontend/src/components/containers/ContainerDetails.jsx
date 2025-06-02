@@ -1,4 +1,4 @@
-import { useLocation, useParams, useNavigate } from 'react-router-dom';
+import { useLocation, useParams, useNavigate, Link } from 'react-router-dom';
 import ContainerItemLabel from '../containerItems/ContainerItemLabel';
 import AddContainerItemModal from '../containerItems/AddContainerItemModal';
 import DeleteContainerModal from './DeleteContainerModal';
@@ -95,6 +95,7 @@ export default function ContainerDetails() {
             <main>
                 <div className='container-details'>
                     <span>
+                        <Link to={`/lockerlist/${lockerId}`} className="back-to-label">Back to Locker Containers</Link>
                         <strong>Items in <em>{containerName}</em> in {lockerName} </strong>
                         <Button onClick={handleStartDeleteContainer}>Delete Container</Button>
                     </span>

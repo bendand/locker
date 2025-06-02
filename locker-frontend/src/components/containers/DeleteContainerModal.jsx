@@ -25,7 +25,9 @@ const DeleteContainerModal = forwardRef(function DeleteContainerModal({
             <div>
                 <Button onClick={onCancel}>X</Button>
             </div>
-            Are you sure you want to delete container?
+            <div className='delete-label'>
+                Are you sure you want to delete container?
+            </div>
             <div>
                 <Button onClick={onDelete}>Delete</Button>
             </div>
