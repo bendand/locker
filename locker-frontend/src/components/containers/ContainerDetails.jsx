@@ -25,7 +25,6 @@ export default function ContainerDetails() {
 
     // variable used to display conditional content
     const hasItems = items.length > 0;
-    console.log('has items: ', hasItems);
 
     // controls open and close of add item modal
     function handleStartAddItem() {

@@ -53,7 +53,7 @@ export default function AuthForm({ onAuthenticate }) {
                     <p>Your credentials are invalid</p>
                 </div>
             )}
-            <div>
+            <div className="form-input">
                 <label htmlFor="username">Username: </label>
                 <input
                     type="text" 
@@ -63,10 +63,10 @@ export default function AuthForm({ onAuthenticate }) {
                     required 
                 />
             </div>
-            <div>
+            <div className="form-input">
                 <label htmlFor="password">Password: </label>
                 <input
-                    type="text" 
+                    type="password" 
                     name="password"
                     value={inputValues.password}
                     onChange={handleInputChange}

@@ -67,19 +67,21 @@ const AddContainerModal = forwardRef(function AddContainerModal({
     }
 
     return createPortal(
-        <dialog ref={dialog}>
+        <dialog ref={dialog} className='modal'>
             <div>
                 <Button onClick={onCancel}>X</Button>
             </div>
             <p>Choose a unique container name.</p>
             <form action={handleSubmit}>
-                <label htmlFor="container-name">Container name: </label>
-                <input 
-                    name='container-name'
-                    value={containerName}
-                    onChange={handleNameChange}
-                    required
-                />
+                <div className="form-input">
+                    <label htmlFor="container-name">Container name: </label>
+                    <input 
+                        name='container-name'
+                        value={containerName}
+                        onChange={handleNameChange}
+                        required
+                    />
+                </div>
                 <div>
                     <Button type='submit'>Add Container</Button>
                 </div>

@@ -23,11 +23,13 @@ const DeleteContainerItemModal = forwardRef(function DeleteContainerItemModal({
 
 
     return createPortal(
-        <dialog ref={dialog}>
+        <dialog ref={dialog} className='modal'>
             <div>
                 <Button onClick={onCancel}>X</Button>
             </div>
-            Are you sure you want to delete item?
+            <div>
+                Are you sure you want to delete item?
+            </div>
             <div>
                 <Button onClick={onProceed}>Delete</Button>
             </div>

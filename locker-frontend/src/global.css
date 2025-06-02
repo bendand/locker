@@ -148,7 +148,6 @@ ul {
 }
 
 .container-item-table {
-  /* place-self: center; */
   max-width: 60%;
 }
 
@@ -160,9 +159,13 @@ ul {
 }
 
 .container-details {
-  display: flex;
+  padding-top: 10px;
   flex-direction: column;
   justify-content: center;
+}
+
+.form-input {
+  margin: 5px;
 }
 
 

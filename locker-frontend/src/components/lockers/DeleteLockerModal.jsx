@@ -22,7 +22,7 @@ const DeleteLockerModal = forwardRef(function DeleteLockerModal({
     });
 
     return createPortal(
-        <dialog ref={dialog}>
+        <dialog ref={dialog} className='modal'>
             <div>
                 <Button onClick={onCancel}>X</Button>
             </div>

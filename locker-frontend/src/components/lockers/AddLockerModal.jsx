@@ -63,7 +63,7 @@ const AddLockerModal = forwardRef(function AddLockerModal({
 
 
     return createPortal(
-        <dialog ref={dialog}>
+        <dialog ref={dialog} className='modal'>
             <div className="modal">
                 <Button 
                     onClick={onCancel}
@@ -71,7 +71,7 @@ const AddLockerModal = forwardRef(function AddLockerModal({
                     X
                 </Button>
                 <form action={handleSubmit} id="locker-form">
-                    <div>
+                    <div className='form-input'>
                         <label htmlFor="name">Locker Name: </label>
                         <input
                             type="text" 
@@ -81,7 +81,7 @@ const AddLockerModal = forwardRef(function AddLockerModal({
                             required 
                         />
                     </div>
-                    <div>
+                    <div className='form-input'>
                         <label htmlFor="address">Locker Address: </label>
                         <input
                             type="text" 
