@@ -94,11 +94,11 @@ export default function ContainerDetails() {
             <Header />
             <main>
                 <div className='container-details'>
-                    <span>
+                    <div className='container-details-header'>
                         <Link to={`/lockerlist/${lockerId}`} className="back-to-label">Back to Locker Containers</Link>
                         <strong>Items in <em>{containerName}</em> in {lockerName} </strong>
                         <Button onClick={handleStartDeleteContainer}>Delete Container</Button>
-                    </span>
+                    </div>
                     <table className='container-item-table'>
                         {items.map((item, idx) => (
                             <ContainerItemLabel

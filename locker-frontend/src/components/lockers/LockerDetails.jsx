@@ -73,12 +73,10 @@ export default function LockerDetails() {
                 <div className="locker-details">
                     {lockerData && (
                         <>
-                            <div>
-                                <span>
-                                    <Link to={'/lockerlist'} className="back-to-label">Back to Locker List</Link>
-                                    <strong>Containers in {lockerData.lockerName} </strong>
-                                    <Button onClick={handleStartDeleteLocker}>Delete Locker</Button>
-                                </span>
+                            <div className="locker-details-header">
+                                <Link to={'/lockerlist'} className="back-to-label">Back to Locker List</Link>
+                                <strong>Containers in {lockerData.lockerName} </strong>
+                                <Button onClick={handleStartDeleteLocker}>Delete Locker</Button>
                             </div>
                             <ul className="container-list">
                                 {lockerData.lockerContainers.map((container, idx) => (

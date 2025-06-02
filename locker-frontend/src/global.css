@@ -127,16 +127,23 @@ ul {
 }
 
 .back-to-label {
-  position: relative;
-  left: -200px;
+  margin-right: auto;
 
   @media (width < 600px) {
+    margin-right: 0;
+  }
+}
+
+.locker-details-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (width < 800px) {
     flex-direction: column;
+    align-items: flex-start;
   }
 
-  @media (width < 600px) {
-    flex-direction: column;
-  }
 }
 
 .locker-details > button {
@@ -158,6 +165,18 @@ ul {
   overflow:hidden;
   border-radius: 3px;
   text-align: center;
+}
+
+.container-details-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (width < 800px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
 }
 
 .container-item-table {
